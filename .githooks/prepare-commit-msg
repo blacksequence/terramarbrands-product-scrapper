@@ -1,0 +1,7 @@
+#!/bin/sh
+# Appends the Sisyphus co-author trailer to every commit message (once).
+MSG_FILE="$1"
+TRAILER="Co-authored-by: Sisyphus <clio-agent@sisyphuslabs.ai>"
+if ! grep -q "^${TRAILER}" "$MSG_FILE"; then
+  printf '\n%s\n' "$TRAILER" >> "$MSG_FILE"
+fi
