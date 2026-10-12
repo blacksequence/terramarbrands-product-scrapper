@@ -1,6 +1,6 @@
 {
-    "name": "terramar-brands-scraper",
-    "version": "1.0.0",
+    "name": "terramarbrands-product-scrapper",
+    "version": "1.1.0",
     "type": "module",
     "description": "Scrapes the full product catalog from terramarbrands.com.mx via public WCF API.",
     "engines": {

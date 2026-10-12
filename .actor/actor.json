@@ -1,8 +1,8 @@
 {
     "$schema": "https://apify.com/schemas/v1/actor.ide.json",
     "actorSpecification": 1,
-    "name": "terramar-brands-scraper",
-    "title": "Terramar Brands Product Scraper",
+    "name": "terramarbrands-product-scrapper",
+    "title": "Terramar Brands Product Scrapper",
     "description": "Scrapes the full product catalog from terramarbrands.com.mx via public WCF API. Extracts SKUs, prices, descriptions, categories, and images for products.",
     "version": "1.0",
     "meta": {
