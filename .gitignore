@@ -5,6 +5,7 @@
 .vscode
 .zed
 .env
+.env.secrets
 dist
 node_modules
 apify_storage
