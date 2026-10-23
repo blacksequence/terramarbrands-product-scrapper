@@ -7,7 +7,7 @@
         "node": ">=18.0.0"
     },
     "dependencies": {
-        "@crawlee/cheerio": "^3.16.0",
+        "@crawlee/cheerio": "^3.18.2",
         "apify": "^3.7.0"
     },
     "devDependencies": {
