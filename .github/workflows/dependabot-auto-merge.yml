@@ -1,0 +1,35 @@
+name: Dependabot Auto-Merge
+
+on: pull_request_target
+
+permissions:
+    pull-requests: write
+    contents: write
+
+jobs:
+    auto-merge:
+        runs-on: ubuntu-latest
+        if: github.actor == 'dependabot[bot]'
+        steps:
+            - name: Dependabot metadata
+              id: metadata
+              uses: dependabot/fetch-metadata@v2
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Enable auto-merge for Dependabot PRs
+              if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+              uses: peter-evans/enable-pull-request-automerge@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  pull-request-number: ${{ github.event.pull_request.number }}
+                  merge-method: squash
+
+            - name: Log auto-merge status
+              run: |
+                  echo "PR #${{ github.event.pull_request.number }}: Update type is ${{ steps.metadata.outputs.update-type }}."
+                  if [ "${{ steps.metadata.outputs.update-type }}" = "version-update:semver-major" ]; then
+                    echo "Major update detected. Skipping auto-merge for manual review."
+                  else
+                    echo "Auto-merge enabled successfully."
+                  fi
